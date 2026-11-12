@@ -1,0 +1,48 @@
+diff --git a/node_modules/react-native-css/dist/commonjs/components/index.cjs b/node_modules/react-native-css/dist/commonjs/components/index.cjs
+index 23af26c..a861747 100644
+--- a/node_modules/react-native-css/dist/commonjs/components/index.cjs
++++ b/node_modules/react-native-css/dist/commonjs/components/index.cjs
+@@ -305,6 +305,11 @@ module.exports = {
+   },
+   get usePressability() {
+     return require("react-native").usePressability;
++  },
++  // RN 0.88 / Expo SDK 58 — expo-asset imports this from 'react-native'.
++  // Without it, useFonts fails with getAssetByID of undefined.
++  get AssetRegistry() {
++    return require("react-native").AssetRegistry;
+   }
+ };
+ //# sourceMappingURL=index.cjs.map
+\ No newline at end of file
+diff --git a/node_modules/react-native-css/dist/module/components/index.cjs b/node_modules/react-native-css/dist/module/components/index.cjs
+index 23af26c..a861747 100644
+--- a/node_modules/react-native-css/dist/module/components/index.cjs
++++ b/node_modules/react-native-css/dist/module/components/index.cjs
+@@ -305,6 +305,11 @@ module.exports = {
+   },
+   get usePressability() {
+     return require("react-native").usePressability;
++  },
++  // RN 0.88 / Expo SDK 58 — expo-asset imports this from 'react-native'.
++  // Without it, useFonts fails with getAssetByID of undefined.
++  get AssetRegistry() {
++    return require("react-native").AssetRegistry;
+   }
+ };
+ //# sourceMappingURL=index.cjs.map
+\ No newline at end of file
+diff --git a/node_modules/react-native-css/src/components/index.cts b/node_modules/react-native-css/src/components/index.cts
+index ead6ff4..378f0b0 100644
+--- a/node_modules/react-native-css/src/components/index.cts
++++ b/node_modules/react-native-css/src/components/index.cts
+@@ -305,4 +305,9 @@ module.exports = {
+   get usePressability() {
+     return require("react-native").usePressability;
+   },
++  // RN 0.88 / Expo SDK 58 — expo-asset imports this from 'react-native'.
++  // Without it, useFonts fails with getAssetByID of undefined.
++  get AssetRegistry() {
++    return require("react-native").AssetRegistry;
++  },
+ };
