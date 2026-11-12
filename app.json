@@ -35,6 +35,31 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "android": {
+      "package": "org.authengine.expensetracker"
+    },
+    "ios": {
+      "bundleIdentifier": "org.authengine.expensetracker"
+    },
+    "web": {
+      "output": "static"
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "b2a5b2f7-b3e7-4b3d-bc01-07f105a44261"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b2a5b2f7-b3e7-4b3d-bc01-07f105a44261"
     }
   }
 }
