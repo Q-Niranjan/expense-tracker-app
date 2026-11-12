@@ -1,9 +1,225 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+/* ------------------------------------------------------------------ */
+/* Design tokens — Income & Expense Tracker (Figma)                    */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Brand */
+  --color-primary: #438883;
+  --color-primary-400: #63b5af;
+  --color-primary-600: #2f7e79;
+  --color-primary-700: #29756f;
+  --color-primary-800: #1b5c58;
+  --color-primary-100: #d0e5e4;
+  --color-primary-50: #f0f6f5;
+
+  /* Semantic */
+  --color-success: #25a969;
+  --color-danger: #f95b51;
+
+  /* Text */
+  --color-ink: #000000;
+  --color-heading: #222222;
+  --color-neutral-90: #424242;
+  --color-secondary: #666666;
+  --color-on-primary: #ffffff;
+  --color-on-primary-muted: #eeeeee;
+
+  /* Surfaces & lines */
+  --color-background: #ffffff;
+  --color-surface: #fbfbfb;
+  --color-border: #dddddd;
+  --color-overlay-light: rgba(255, 255, 255, 0.15);
+  --color-overlay-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Typography — Inter, one family per weight (React Native requirement) */
+  --font-inter: "Inter";
+  --font-inter-medium: "InterMedium";
+  --font-inter-semibold: "InterSemiBold";
+  --font-inter-bold: "InterBold";
+
+  --text-caption: 12px;
+  --text-caption--line-height: 15px;
+  --text-footnote: 13px;
+  --text-footnote--line-height: 16px;
+  --text-body: 14px;
+  --text-body--line-height: 17px;
+  --text-callout: 16px;
+  --text-callout--line-height: 19px;
+  --text-title: 18px;
+  --text-title--line-height: 22px;
+  --text-headline: 20px;
+  --text-headline--line-height: 24px;
+  --text-display: 30px;
+  --text-display--line-height: 36px;
+  --text-hero: 36px;
+  --text-hero--line-height: 44px;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.04em;
+  --tracking-snug: -0.02em;
+  --tracking-label: 0.06em;
+
+  /* Spacing */
+  --spacing-screen: 24px;
+  --spacing-card: 20px;
+  --spacing-item: 9px;
+
+  /* Radius */
+  --radius-icon: 8px;
+  --radius-input: 8px;
+  --radius-chip: 10px;
+  --radius-row: 12px;
+  --radius-card: 20px;
+  --radius-pill: 40px;
+
+  /* Shadows */
+  --shadow-card: 0px 22px 35px rgba(0, 0, 0, 0.08);
+  --shadow-tab-bar: 0px -2px 12.5px rgba(0, 0, 0, 0.06);
+  --shadow-active: 0px 30px 20px rgba(41, 117, 111, 0.35);
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography utilities                                                */
+/* ------------------------------------------------------------------ */
+
+@utility text-display-amount {
+  @apply font-inter-bold text-display text-on-primary tracking-tighter;
+}
+
+@utility text-screen-title {
+  @apply font-inter-semibold text-title text-heading text-center;
+}
+
+@utility text-section-title {
+  @apply font-inter-semibold text-title text-heading tracking-snug;
+}
+
+@utility text-link {
+  @apply font-inter text-body text-secondary tracking-snug;
+}
+
+@utility text-item-title {
+  @apply font-inter-medium text-callout text-ink tracking-snug;
+}
+
+@utility text-item-subtitle {
+  @apply font-inter text-footnote text-secondary tracking-snug;
+}
+
+@utility text-amount {
+  @apply font-inter-semibold text-title tracking-tight text-right;
+}
+
+@utility text-amount-income {
+  @apply text-amount text-success;
+}
+
+@utility text-amount-expense {
+  @apply text-amount text-danger;
+}
+
+@utility text-field-label {
+  @apply font-inter-medium text-caption text-secondary tracking-label uppercase;
+}
+
+/* ------------------------------------------------------------------ */
+/* Component utilities                                                 */
+/* ------------------------------------------------------------------ */
+
+@utility screen {
+  @apply flex-1 bg-background;
+}
+
+@utility screen-padding {
+  @apply px-screen;
+}
+
+@utility section-header {
+  @apply flex-row items-center justify-between;
+}
+
+@utility card {
+  @apply bg-background rounded-card shadow-card;
+}
+
+@utility balance-card {
+  @apply bg-primary-600 rounded-card p-card;
+}
+
+@utility list-row {
+  @apply flex-row items-center justify-between rounded-row bg-surface p-2.5;
+}
+
+@utility list-row-active {
+  @apply flex-row items-center justify-between rounded-row bg-primary-700 p-2.5 shadow-active;
+}
+
+@utility icon-box {
+  @apply size-[50px] items-center justify-center rounded-icon bg-primary-50 p-2.5;
+}
+
+@utility icon-button {
+  @apply items-center justify-center rounded-[7px] bg-overlay-subtle p-2;
+}
+
+@utility icon-badge {
+  @apply size-6 items-center justify-center rounded-pill bg-overlay-light;
+}
+
+@utility input {
+  @apply h-[50px] flex-row items-center rounded-input border border-border px-5;
+}
+
+@utility input-focused {
+  @apply h-[50px] flex-row items-center rounded-input border-[1.4px] border-primary px-5;
+}
+
+@utility input-dashed {
+  @apply h-[50px] flex-row items-center justify-center rounded-input border border-dashed border-border;
+}
+
+@utility btn-primary {
+  @apply h-16 items-center justify-center rounded-pill bg-primary px-6;
+}
+
+@utility btn-primary-text {
+  @apply font-inter-semibold text-title text-on-primary;
+}
+
+@utility btn-outline {
+  @apply h-10 flex-row items-center justify-center gap-2.5 rounded-chip border border-secondary px-2.5;
+}
+
+@utility btn-outline-text {
+  @apply font-inter-medium text-body text-secondary;
+}
+
+@utility chip {
+  @apply h-10 items-center justify-center rounded-chip px-2.5;
+}
+
+@utility chip-active {
+  @apply h-10 items-center justify-center rounded-chip bg-primary px-2.5;
+}
+
+@utility chip-text {
+  @apply font-inter text-footnote text-secondary text-center;
+}
+
+@utility chip-text-active {
+  @apply font-inter text-footnote text-on-primary text-center;
+}
+
+@utility tab-bar {
+  @apply h-20 flex-row items-center justify-around bg-background shadow-tab-bar;
+}
+
+@utility fab {
+  @apply size-[76px] items-center justify-center rounded-full bg-primary shadow-active;
 }
