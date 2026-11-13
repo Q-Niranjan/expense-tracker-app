@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef } from 'react';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
 
+import { hostedAuthRedirectUrl } from '@/constants/hosted-auth';
 import { images } from '@/constants/image';
 import { colors, gradients } from '@/constants/theme';
 
@@ -35,7 +36,7 @@ export default function SplashScreen() {
     }
 
     openedClerk.current = true;
-    void startHostedAuthRef.current({ mode: 'sign-in' });
+    void startHostedAuthRef.current({ mode: 'sign-in', redirectUrl: hostedAuthRedirectUrl });
   }, [isLoaded, isSignedIn]);
 
   return (

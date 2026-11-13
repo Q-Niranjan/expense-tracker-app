@@ -3,6 +3,8 @@ import { useHostedAuth } from '@clerk/expo/hosted-auth';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef } from 'react';
 
+import { hostedAuthRedirectUrl } from '@/constants/hosted-auth';
+
 export default function SignInScreen() {
   const { isSignedIn } = useAuth({ treatPendingAsSignedOut: false });
   const { startHostedAuth } = useHostedAuth();
@@ -23,7 +25,7 @@ export default function SignInScreen() {
     }
 
     openedClerk.current = true;
-    void startHostedAuthRef.current({ mode: 'sign-in' });
+    void startHostedAuthRef.current({ mode: 'sign-in', redirectUrl: hostedAuthRedirectUrl });
   }, [isSignedIn, router]);
 
   return null;

@@ -37,10 +37,10 @@
       "reactCompiler": true
     },
     "android": {
-      "package": "org.authengine.expensetracker"
+      "package": "expense.tracker.local"
     },
     "ios": {
-      "bundleIdentifier": "org.authengine.expensetracker"
+      "bundleIdentifier": "expense.tracker.local"
     },
     "web": {
       "output": "static"

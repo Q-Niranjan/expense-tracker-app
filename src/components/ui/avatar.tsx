@@ -1,9 +1,16 @@
-import { Text, View } from 'react-native';
+import { Image, type ImageSourcePropType } from 'react-native';
 
-export function Avatar() {
+type AvatarProps = {
+  source: ImageSourcePropType;
+  size?: number;
+};
+
+export function Avatar({ source, size = 48 }: AvatarProps) {
   return (
-    <View>
-      <Text>Avatar</Text>
-    </View>
+    <Image
+      source={source}
+      resizeMode="cover"
+      style={{ width: size, height: size, borderRadius: size / 2 }}
+    />
   );
 }
