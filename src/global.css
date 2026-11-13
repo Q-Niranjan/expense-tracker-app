@@ -44,21 +44,21 @@
   --font-inter-bold: "InterBold";
 
   --text-caption: 12px;
-  --text-caption--line-height: 15px;
+  --text-caption--line-height: 1.25;
   --text-footnote: 13px;
-  --text-footnote--line-height: 16px;
+  --text-footnote--line-height: 1.23;
   --text-body: 14px;
-  --text-body--line-height: 17px;
+  --text-body--line-height: 1.21;
   --text-callout: 16px;
-  --text-callout--line-height: 19px;
+  --text-callout--line-height: 1.19;
   --text-title: 18px;
-  --text-title--line-height: 22px;
+  --text-title--line-height: 1.22;
   --text-headline: 20px;
-  --text-headline--line-height: 24px;
+  --text-headline--line-height: 1.2;
   --text-display: 30px;
-  --text-display--line-height: 36px;
+  --text-display--line-height: 1.2;
   --text-hero: 36px;
-  --text-hero--line-height: 44px;
+  --text-hero--line-height: 1.22;
 
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.04em;
@@ -221,5 +221,5 @@
 }
 
 @utility fab {
-  @apply size-[76px] items-center justify-center rounded-full bg-primary shadow-active;
+  @apply size-[64px] items-center justify-center rounded-full bg-primary;
 }

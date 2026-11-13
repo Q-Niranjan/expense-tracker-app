@@ -1,9 +1,10 @@
-import { colors } from '@/constants/theme';
 import { Tabs } from 'expo-router/js-tabs';
+
+import { TabBar } from '@/components/layout/tab-bar';
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: true, headerTitle: 'Expense Tracker' , headerStyle: { backgroundColor: colors.primary700 } }}>
+    <Tabs screenOptions={{ headerShown: false }} tabBar={(props) => <TabBar {...props} />}>
       <Tabs.Screen name="home" options={{ title: 'Home' }} />
       <Tabs.Screen name="statistics" options={{ title: 'Statistics' }} />
       <Tabs.Screen name="wallet" options={{ title: 'Wallet' }} />
